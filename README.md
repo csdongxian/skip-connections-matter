@@ -29,7 +29,7 @@ python evaluate.py
 
 ## Results
 
-![adversarial_examples](figs/examples.jpg)
+<img src="https://github.com/csdongxian/security-of-skip-connections/blob/master/figs/examples.jpg" width="60%" height="60%">
 
 ## Implementation
 
