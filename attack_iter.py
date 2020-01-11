@@ -72,13 +72,15 @@ def generate_adversarial_example(model, data_loader, adversary, img_path):
 
 
 def main():
-    # create dataloader
-    data_loader, image_list = load_images(input_dir=args.input_dir, batch_size=args.batch_size)
-
     # create model
     net = pretrainedmodels.__dict__[args.arch](num_classes=1000, pretrained='imagenet')
+    height, width = net.input_size[1], net.input_size[2]
     model = nn.Sequential(Normalize(mean=net.mean, std=net.std), net)
     model = model.to(device)
+
+    # create dataloader
+    data_loader, image_list = load_images(input_dir=args.input_dir, batch_size=args.batch_size,
+                                          input_height=height, input_width=width)
 
     # create adversary
     epsilon = args.epsilon / 255.0
