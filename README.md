@@ -36,7 +36,7 @@ python attack_iter.py --input-dir=nat_images --output-dir=adv_images --arch=dens
 
 ## Results
 
-<img src="https://github.com/csdongxian/security-of-skip-connections/blob/master/figs/examples.jpg" width="60%" height="60%">
+<img src="https://github.com/csdongxian/security-of-skip-connections/blob/master/figs/examples.jpg" width="80%" height="80%">
 
 ## Implementation
 
