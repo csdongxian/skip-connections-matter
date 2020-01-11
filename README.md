@@ -55,11 +55,11 @@ In fact, we manipulate gradients flowing through ReLU in [utils_sgm](https://git
 
 All pretrained models in our paper can be found online:
 
-For VGG/ResNet/DenseNet/SENet, we use pretrained models in [pretrainedmodels](https://github.com/Cadene/pretrained-models.pytorch);
+- For VGG/ResNet/DenseNet/SENet, we use pretrained models in [pretrainedmodels](https://github.com/Cadene/pretrained-models.pytorch);
 
-For Inception models, we use pretrained models in [slim](https://github.com/tensorflow/models/tree/master/research/slim) of Tensorflow;
+- For Inception models, we use pretrained models in [slim](https://github.com/tensorflow/models/tree/master/research/slim) of Tensorflow;
 
-For secured models (e.g. ), they are trained by [Ensemble Adversarial Training](https://arxiv.org/abs/1705.07204) [2], and pretrained results can be found in [adv_imagenet_models](https://github.com/tensorflow/models/tree/master/research/adv_imagenet_models).
+- For secured models (e.g. ), they are trained by [Ensemble Adversarial Training](https://arxiv.org/abs/1705.07204) [2], and pretrained results can be found in [adv_imagenet_models](https://github.com/tensorflow/models/tree/master/research/adv_imagenet_models).
 
 
 ## Reference
