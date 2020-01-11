@@ -8,7 +8,7 @@ This repository contains the code for [Rethinking the Security of Skip Connectio
 We propose the Skip Gradient Method (SGM) to generate adversarial examples using gradients more from the skip connections rather than the
 residual modules. In particular, SGM utilizes a decay factor (gamma) to reduce gradients from the residual modules, 
 
-<img src="https://github.com/csdongxian/security-of-skip-connections/blob/master/figs/formula_of_sgm.jpg" width="60%" height="60%">
+<img src="https://github.com/csdongxian/security-of-skip-connections/blob/master/figs/formula_of_sgm.jpg" width="80%" height="80%">
 
 
 ## Requisite
@@ -36,7 +36,7 @@ python attack_iter.py --input-dir=nat_images --output-dir=adv_images --arch=dens
 
 ## Results
 
-<img src="https://github.com/csdongxian/security-of-skip-connections/blob/master/figs/examples.jpg" width="80%" height="80%">
+<img src="https://github.com/csdongxian/security-of-skip-connections/blob/master/figs/examples.jpg" width="100%" height="100%">
 
 ## Implementation
 
