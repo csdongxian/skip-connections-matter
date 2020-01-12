@@ -115,7 +115,7 @@ def main():
         print('using linf PGD attack')
         adversary = LinfPGDAttack(predict=model, loss_fn=nn.CrossEntropyLoss(reduction="sum"),
                                   eps=epsilon, nb_iter=args.num_steps, eps_iter=step_size,
-                                  clip_min=0.0, clip_max=1.0, targeted=False)
+                                  rand_init=False, clip_min=0.0, clip_max=1.0, targeted=False)
 
     generate_adversarial_example(model=model, data_loader=data_loader,
                                  adversary=adversary, img_path=image_list)
