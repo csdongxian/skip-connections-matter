@@ -55,33 +55,12 @@ class Normalize(nn.Module):
         return (x - self.mean.type_as(x)[None, :, None, None]) / self.std.type_as(x)[None, :, None, None]
 
 
-class AverageMeter(object):
-    """Computes and stores the average and current value"""
-
-    def __init__(self):
-        self.reset()
-
-    def reset(self):
-        self.val = 0
-        self.avg = 0
-        self.sum = 0
-        self.count = 0
-
-    def update(self, val, n=1):
-        self.val = val
-        self.sum += val * n
-        self.count += n
-        self.avg = self.sum / self.count
-
-
 def generate_adversarial_example(model, data_loader, adversary, img_path):
     """
     generate and save adversarial example
     """
-    batch_time = AverageMeter()
     model.eval()
 
-    end = time.time()
     for batch_idx, (inputs, idx) in enumerate(data_loader):
         inputs = inputs.to(device)
         with torch.no_grad():
@@ -94,14 +73,8 @@ def generate_adversarial_example(model, data_loader, adversary, img_path):
         save_images(inputs_adv.detach().cpu().numpy(), img_list=img_path,
                     idx=idx, output_dir=args.output_dir)
 
-        # measure elapsed time
-        batch_time.update(time.time() - end)
-        end = time.time()
-
         if batch_idx % args.print_freq == 0:
-            print('Test: [{0}/{1}]\t'
-                  'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'.format(
-                batch_idx, len(data_loader), batch_time=batch_time))
+            print('generating: [{0}/{1}]'.format(batch_idx, len(data_loader)))
 
 
 def main():
