@@ -17,8 +17,8 @@ model_names = sorted(name for name in pretrainedmodels.__dict__
                      and callable(pretrainedmodels.__dict__[name]))
 
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Attack')
-parser.add_argument('--input_dir', default='', help='Input directory with images.')
-parser.add_argument('--output_dir', default='', help='Output directory with images.')
+parser.add_argument('--input-dir', default='', help='Input directory with images.')
+parser.add_argument('--output-dir', default='', help='Output directory with images.')
 parser.add_argument('--arch', default='densenet201', help='source model',
                     choices=model_names)
 parser.add_argument('--batch-size', type=int, default=128, metavar='N',
@@ -61,10 +61,11 @@ def generate_adversarial_example(model, data_loader, adversary, img_path):
 
     for batch_idx, (inputs, idx) in enumerate(data_loader):
         inputs = inputs.to(device)
-        _, pred = model(inputs).topk(1, 1, True, True)
+        with torch.no_grad():
+            _, pred = model(inputs).topk(1, 1, True, True)
 
         # craft adversarial images
-        inputs_adv = adversary.perturb(inputs, pred.view(-1))
+        inputs_adv = adversary.perturb(inputs, pred.detach().view(-1))
 
         # save adversarial images
         save_images(inputs_adv.detach().cpu().numpy(), img_list=img_path,
