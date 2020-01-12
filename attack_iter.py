@@ -33,6 +33,8 @@ parser.add_argument('--step-size', default=2, type=float,
                     help='perturb step size')
 parser.add_argument('--gamma', default=1.0, type=float)
 parser.add_argument('--momentum', default=0.0, type=float)
+parser.add_argument('--print-freq', '-p', default=10, type=int,
+                    metavar='N', help='print frequency (default: 10)')
 
 args = parser.parse_args()
 
