@@ -1,6 +1,6 @@
-# Security of Skip-connections
+# Skip Connections Matter
  
-This repository contains the code for [Rethinking the Security of Skip Connections in ResNet-like Neural Networks](https://openreview.net/forum?id=BJlRs34Fvr) (ICLR 2020 Spotlight).
+This repository contains the code for [Skip Connections Matter: On the Transferability of Adversarial Examples Generated with ResNets](https://openreview.net/forum?id=BJlRs34Fvr) (ICLR 2020 Spotlight).
 
 
 ## Method
