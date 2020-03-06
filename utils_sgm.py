@@ -25,7 +25,7 @@ def register_hook_for_resnet(model, arch, gamma):
     backward_hook_sgm = backward_hook(gamma)
 
     for name, module in model.named_modules():
-        if 'relu' in name and not 'layer1.0.relu' in name:
+        if 'relu' in name and not '0.relu' in name:
             module.register_backward_hook(backward_hook_sgm)
 
         # e.g., 1.layer1.1, 1.layer4.2, ...
