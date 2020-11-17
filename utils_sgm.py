@@ -29,7 +29,8 @@ def register_hook_for_resnet(model, arch, gamma):
             module.register_backward_hook(backward_hook_sgm)
 
         # e.g., 1.layer1.1, 1.layer4.2, ...
-        if len(name.split('.')) == 3:
+        # if len(name.split('.')) == 3:
+        if len(name.split('.')) >= 2 and 'layer' in name.split('.')[-2]:
             module.register_backward_hook(backward_hook_norm)
 
 
