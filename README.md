@@ -20,7 +20,7 @@ residual modules. In particular, SGM utilizes a decay factor (gamma) to reduce g
 
 This code is implemented in PyTorch, and we have tested the code under the following environment settings:
 
-- python = 37.6
+- python = 3.7.6
 - torch = 1.7.0
 - torchvision = 0.8.1
 - advertorch = 0.2.2
@@ -33,7 +33,7 @@ This code is implemented in PyTorch, and we have tested the code under the follo
     ```bash
     python attack_sgm.py --gamma 0.2 --output_dir adv_images --arch densenet201 --batch-size 40
     ```
-    For DenseNet-201 as the source model
+    For DenseNet-201 as the source model,
     ```bash
     python attack_sgm.py --gamma 0.5 --output_dir adv_images --arch resnet152 --batch-size 40
     ```
@@ -53,7 +53,8 @@ This code is implemented in PyTorch, and we have tested the code under the follo
 We run this code, and the attack success (1 - acc) against VGG19 is close to the repored in our paper:
 
 
-| Method      | PGD    | MI     | SGM    |
+| Source \ Method| PGD    | MI     | SGM    |
+| :-----      | :----  | :----  | :----  |
 | ResNet-152  | 45.80% | 66.70% | 81.04% |
 | DenseNet-201| 57.82% | 75.38% | 82.58% |
 
